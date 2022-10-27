@@ -6,7 +6,9 @@ const logger = require("morgan");
 app.listen(port, () => {
 	console.log(`Example app listening on port ${port}`);
 });
+
 app.use(logger("dev"));
+
 app.get("/", (req, res) => {
 	res.json({
 		slackUsername: "itzadetunji",
