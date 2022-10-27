@@ -14,6 +14,6 @@ app.get("/", (req, res) => {
 		slackUsername: "itzadetunji",
 		backend: true,
 		age: 17,
-		bio: "I am a web developer from Nigeria working to transform the world.",
+		bio: "I am a web developer trying his best :) to become a better person and transform the world",
 	});
 });
