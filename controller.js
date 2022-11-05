@@ -1,7 +1,8 @@
 const handleOperation = (req, res) => {
 	var result;
 	var { x, y } = req.body;
-	const { operation_type } = req.body;
+	var { operation_type } = req.body;
+	operation_type = operation_type.toLowerCase();
 	if (!parseInt(x) || !parseInt(y)) {
 		return res
 			.status(400)
@@ -11,12 +12,10 @@ const handleOperation = (req, res) => {
 		y = parseInt(y);
 	}
 	const operators = {
-		ADDITION: ["addition", "add", "+", "sum"],
-		SUBTRACTION: ["subtraction", "subtract", "-", "minus"],
-		MULTIPLICATION: ["multiplication", "multiply", "x", "*", "times"],
+		ADDITION: "addition",
+		SUBTRACTION: "subtraction",
+		MULTIPLICATION: "multiplication",
 	};
-	const addOperation = operators.ADDITION.map((add) => add);
-	console.log(addOperation);
 	switch (operation_type.trim().toLowerCase()) {
 		case operators.ADDITION:
 			result = x + y;
@@ -28,7 +27,7 @@ const handleOperation = (req, res) => {
 			result = x * y;
 			break;
 		default:
-			result = "I cannot do that calculation";
+			result = "I cannot do that calculation 😭";
 	}
 	return res
 		.status(200)
