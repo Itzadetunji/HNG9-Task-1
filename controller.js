@@ -1,7 +1,7 @@
 const handleOperation = (req, res) => {
-	var result;
-	var { x, y } = req.body;
-	var { operation_type } = req.body;
+	let result;
+	let { x, y } = req.body;
+	let { operation_type } = req.body;
 	operation_type = operation_type.toLowerCase();
 	if (!parseInt(x) || !parseInt(y)) {
 		return res
